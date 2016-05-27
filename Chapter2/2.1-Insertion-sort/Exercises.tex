@@ -34,19 +34,17 @@ Answer:
 BINARY-ADD(A, B)
   carry = 0
   for i = A.length to 1
-    if carry == 0, A[i] == 0, B[i] == 0
+    if none of carry, A[i], B[i] is 1
       carry = 0
       C[i+1] = 0
     else if exactly one of carry, A[i], B[i] is 1
       carry = 0
       C[i+1] = 1
-    else if exactly two of carry, A[i], B[i] are 2
+    else if exactly two of carry, A[i], B[i] are 1
       carry = 1
       C[i+1] = 0
-    else 
+    else  // all of carry, A[i], B[i] are 1
       carry = 1
       C[i+1] = 1
   C[1] = carry
   return C
-
-      
