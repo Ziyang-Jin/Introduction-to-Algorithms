@@ -13,10 +13,16 @@ Answer:
   Therefore, when 1 <= n <= 43, insertion sort beats merge sort.
 
 1.2-3
-What is the smallest value of n such that an algorithm whose running time is 100n<sup>2</sup> runs faster than an algorithm whose running time is 2n on the same machine?
+What is the smallest value of n such that an algorithm whose running time is 100n<sup>2</sup> runs faster than an algorithm whose running time is 2<sup>n</sup> on the same machine?
 
 Answer:
-  There is no such n for any positive integer n.
+  100n<sup>2</sup> = 2<sup>n</sup>
+  100n<sup>2</sup> - 2<sup>n</sup> = 0
+  
+  n = 14: 100n<sup>2</sup> - 2<sup>n</sup> = 3216
+  n = 15: 100n<sup>2</sup> - 2<sup>n</sup> = -10268
+  Therefore, the smallest value of n is 15.
+  
 </pre>
 </body>
 </html>
