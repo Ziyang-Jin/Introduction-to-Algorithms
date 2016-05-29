@@ -1,7 +1,19 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\title{Chapter 2 Exercises}
+\author{Ziyang Jin}
+\date{May 2016}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\begin{document}
 2.2-2
 Consider sorting n numbers stored in array A by first finding the smallest element of A and exchanging it with the element in A[1]. Then find the second  smallest element of A, and exchange it with A[2]. Continue in this manner for the first n-1 elements of A. Write pseudocode for this algorithm, which is known as selection sort. What loop invariant does this algorithm maintain? Why does it need  to run for only the first n-1 elements of A, rather than for all n elements? Give the best-case and worst-case running time of selecton sort in \Theta - notation.
 
 Answer:
+\Procedure
 SELECTION-SORT(A)
   for i = 1 to A.length-1
     min = i
@@ -13,11 +25,13 @@ SELECTION-SORT(A)
   
 loop invariant: A[1 ... i] is sorted
   
-best-case: \Theta(n^2)
-worst-casse: \Theta(n^2)
+best-case: $\Theta(n^2)$
+worst-casse: $\Theta(n^2)$
+\EndProcedure
 
 2.2-4
 How can we modify almost any algorithm to have a good best-case running time?
 
 Answer:
   Check if it is the best-case first, then do the things only needed for the best-case.
+\end{document}
