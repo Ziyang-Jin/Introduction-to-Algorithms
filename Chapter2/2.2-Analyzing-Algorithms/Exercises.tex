@@ -14,18 +14,26 @@ Consider sorting n numbers stored in array A by first finding the smallest eleme
 
 Answer:
 \Procedure
-SELECTION-SORT(A)
-  for i = 1 to A.length-1
-    min = i
-    for j = i+1 to A.length
-      if A[min] > A[j]
-        min = j
-    exchange A[i] <-> A[min]
-  return A
+\begin{algorithm}
+\begin{algorithmic}[1]
+\Procedure{SELECTION-SORT}{A}
+    \For{i = 1 to A.length-1}
+        \State min = i
+        \For{j = i+1 to A.length}
+            \If A[min] > A[j]
+                \State min = j
+            \EndIf
+        \EndFor
+        \State exchange A[i] <-> A[min]
+    \EndFor
+    \Return A
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}  
   
 loop invariant: A[1 ... i] is sorted
   
-best-case: $\Theta(n^2)$
+best-case: $\Theta(n^2)$; 
 worst-casse: $\Theta(n^2)$
 \EndProcedure
 
