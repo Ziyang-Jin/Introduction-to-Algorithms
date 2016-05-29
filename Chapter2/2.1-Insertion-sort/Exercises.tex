@@ -1,20 +1,37 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\title{Chapter 2 Exercises}
+\author{Ziyang Jin}
+\date{May 2016}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\begin{document}
 2.1-2
 Rewrite the INSERTION-SORT procedure to sort into nonincreasing instead of nondecreasing odrder.
 
 Answer:
-NONDECREASING-INSERTION-SORT (A)
-  for j = 2 to A.length
-    key = A[j]
-    // Insert A[j] into the sorted sequence A[1 ... j-1]
-    i = j - 1
-    while i > 0 and A[i] < key
-      A[i+1] = A[i]
-      i = i - 1
-    A[i+1] = key
+\begin{algorithm}
+\begin{algorithmic}[1]
+\Procedure{NON-DEREASING-INSERTION-SORT}{A}
+\For{\texttt{j = 2 to A.length}}
+    \State key = A[j]
+    \State i = j - 1
+    \While{\texttt{i > 0 and A[i] < key}}
+        \State A[i+1] = A[i]
+        \State i = i - 1
+    \EndWhile
+    \State A[i+1] = key
+\EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
     
 2.1-3
 Consider the searching problem:
-  Input: A sequence of n numbers A = <a_1, a_2, ..., a_n> and a value v.
+  Input: A sequence of n numbers $A = <a_1, a_2, ..., a_n>$ and a value v.
   Output: An index i such that v = A[i] or the special value NIL if v does not apprear in A.
 Write pseudocode dor linear search, which scans through the sequence, looking for v. Using a loop invariant, prove that your algorithm is correct. Make sure that your loop invariant fulfills the threee necessary properties.
 
@@ -24,6 +41,19 @@ LINEAR-SEARCH(A, v)
     if A[i] == key
       return i
   return NIL
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+\Procedure{LINEAR-SEARCH}{A,v}
+\For{texttt{i = 1 to A.lengh}}
+    \If{A[i] == key}
+        \State return i
+    \EndIf
+\EndFor
+\State return NIL
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
   
 loop invariant: It has not found i.
   
@@ -31,20 +61,30 @@ loop invariant: It has not found i.
 Consider the problem of adding two n-bit binary intergers, stored in two n-element arrays A and B. The sum of the two integers should be strored in binary form in an (n+1)-element array C. State the problem formally and write pseudocode for adding the two integers.
 
 Answer:
-BINARY-ADD(A, B)
-  carry = 0
-  for i = A.length to 1
-    if none of carry, A[i], B[i] is 1
-      carry = 0
-      C[i+1] = 0
-    else if exactly one of carry, A[i], B[i] is 1
-      carry = 0
-      C[i+1] = 1
-    else if exactly two of carry, A[i], B[i] are 1
-      carry = 1
-      C[i+1] = 0
-    else  // all of carry, A[i], B[i] are 1
-      carry = 1
-      C[i+1] = 1
-  C[1] = carry
-  return C
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+\Procedure{BINARY-ADD}{A, B}
+\State carry = 0
+\For{texttt{i = A.length to 1}}
+    \If{none of carry, A[i], B[i] is 1}
+        \State carry = 0
+        \State C[i+1] = 0
+    \ElsIf{exactly one of carry, A[i], B[i] is 1}
+        \State carry = 0
+        \State C[i+1] = 1
+    \ElsIf{exactly two of carry, A[i], B[i] are 1}
+       \State carry = 1
+       \State C[i+1] = 0
+    \Else
+        \State carry = 1
+        \State C[i+1] = 1
+    \EndIf
+\EndFor
+\State C[1] = carry
+\State return C
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}
