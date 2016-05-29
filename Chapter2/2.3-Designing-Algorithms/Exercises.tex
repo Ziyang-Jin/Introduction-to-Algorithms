@@ -10,5 +10,27 @@
 
 \begin{document}
 2.3-7
-Describe a \Theta
+Describe a $\Theta$ (n lg n)-time algorithm that, given a set S of n integers and another integer x, determines whether or not there exist two elements in S whose sum is exactly x.
+
+Answer:
+\begin{algorithm}
+\begin{algorithmic}[1]
+\Procedure{FIND-TWO-ELEMENTS-SUM-X}{S, n, x} \Comment{S has n integers}
+    \State int B[1 ... 2n]
+    \For{i = 1 to n}
+        \State B[i] = x - S[i]
+    \EndFor
+    \For{i = n+1 to 2n}
+        \State B[i] = S[i-n]
+    \EndFor
+    \State MERGE-SORT(B, 1, 2n)
+    \For{i = 1 to 2n - 1}
+        \If{B[i] == B[i+1]}
+            \Return {true}
+        \EndIf
+    \EndFor
+    \Return {false}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}  
 \end{document}
