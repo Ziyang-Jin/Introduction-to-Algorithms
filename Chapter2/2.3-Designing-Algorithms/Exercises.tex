@@ -9,6 +9,12 @@
 \setlength{\parskip}{1em}
 
 \begin{document}
+2.3-6
+Observe that the while loop of lines 5-7 of the INSERTION-SORT procedure in Section 2.1 uses a linear search to scan (backward) through the sorted subarray A[1 ... j-1]. Can we use a binary search instead to improve the overall worst-case running time of insertion sort to $\Theta (n lg n)$?
+
+Answer:
+We can use binary search to find the place to insert in $\Theta (lg n)$ time; however, we need to shift the elements of the array to the right by 1 position. Therefore, the overall worst-case running time is still $\Theta (n^2)$.
+
 2.3-7
 Describe a $\Theta$ (n lg n)-time algorithm that, given a set S of n integers and another integer x, determines whether or not there exist two elements in S whose sum is exactly x.
 
