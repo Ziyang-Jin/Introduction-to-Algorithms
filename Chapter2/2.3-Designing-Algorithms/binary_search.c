@@ -1,5 +1,6 @@
 #include <stdio.h>
 #define N 100
+// a recursive implementation of binary search
 // assume a[l ... r] is sorted
 int binary_search(int* a, int l, int r, int x){
     if(x <= a[l]) return l;
