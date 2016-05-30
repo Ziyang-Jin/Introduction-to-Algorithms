@@ -2,6 +2,7 @@
 #define N 10
 // This is the solution to 2.3-6 in Introduction to Algorithms
 // Author: Ziyang Jin
+// an iterative implementation of binary search
 int binary_search(int* a, int l, int r, int x){
     int m;
     if(x <= a[l]) return l;
