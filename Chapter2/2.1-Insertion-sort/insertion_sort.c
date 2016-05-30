@@ -23,7 +23,7 @@ void print_array(int* a, int n) {
 
 int main() {
     int a[N] = {12, 23, 1, 4, 67, 33, 82, 5, 4, 15};
-    print_array(a, N);
+    print_array(a, N); // before insertion_sort
     insertion_sort(a, N);
-    print_array(a, N);
+    print_array(a, N); // after insertion_sort
 }
