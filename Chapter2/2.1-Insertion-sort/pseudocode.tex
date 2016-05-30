@@ -2,7 +2,7 @@
 \usepackage{amsmath}
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
-\title{Chapter 2 Exercises}
+\title{Insertion Sort}
 \author{Ziyang Jin}
 \date{May 2016}
 \setlength{\parindent}{0em}
@@ -10,11 +10,10 @@
 
 \begin{document}
 
-The algorithm and proof is from Introduction to Algorithms(by CLRS), 3rd edition\par
 \begin{algorithm}
 \begin{algorithmic}[1]
 \Procedure{INSERTION-SORT}{A}
-\For{texttt{j = 2 to A.lengh}}
+\For{j = 2 to A.lengh}
     \State key = A[j]
     \State i = j - 1
     \While{i > 0 and A[i] > key}
@@ -34,5 +33,4 @@ Proof Using Loop Invariant:\par
     A more formal treatment of the second property would require us to state and show a loop invariant for the while loop of lines 5 - 7.
   
   Termination: Finally, we examine what happens when the loop terminates. The condition causing the for loop to terminate is that j > .length = n. Because each loop iteration increases j by 1, we must have j = n + 1 at taht time. Substituting n + 1 for j in the wording of loop invariant, we have that subarray A[1 ... n] consists of the elements originally in A[1 ... n], but in sorted order. Observing that the subarray A[1 ... n], is the entire array, we conclude that the entire array is sorted. Hence, the algorithm is correct.
-  
 \end{document}
