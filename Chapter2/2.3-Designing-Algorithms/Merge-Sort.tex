@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{mathtools}
+\usepackage[noend]{algpseudocode}
+\title{Merge Sort}
+\author{Ziyang Jin}
+\date{May 2016}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\begin{document}
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+\Procedure{MERGE}{A, p, q, r}
+\State $n_1$ = q - p + 1
+\State $n_2$ = r - p
+\State let L[1 ... $n_1$+1] and R[1 ... $n_2$+1] be new arrays
+\For{i = 1 to $n_1$}
+    \State L[i] = A[p+i-1]
+\EndFor
+\For{j = 1 to $n_2$}
+    \State R[j] = A[q+j]
+\EndFor
+\State L[$n_1$+1] = $\infty$
+\State R[$n_2$+1] = $\infty$
+\State i = 1
+\State j = 1
+\For{k = p to r}
+    \If{L[i] $<=$ R[j]}
+        \State A[k] = L[i]
+        \State i = i + 1
+    \Else
+        \State A[k] = R[j]
+        \State j = j + 1
+    \EndIf
+\EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}  
+
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+\Procedure{MERGE-SORT}{A, p, r}
+\If{p $<$ r}
+    \State q = $\lfloor{(p+r)/2}\rfloor$
+    \State MERGE-SORT(A, p, q)
+    \State MERGE-SORT(A, q+1, r)
+    \State MERGE(A, p, q, r)
+\EndIf
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}
